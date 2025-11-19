@@ -20,7 +20,7 @@ current_age =  datetime.now().year - birth_year
 hobbies = list()
 
 while (True):
-    hobby = input("Enter a favorite hobby: or type 'stop' to finish: ")
+    hobby = input("Enter a favorite hobby or type 'stop' to finish: ")
     if hobby.lower() == "stop":
         break
     
@@ -35,16 +35,6 @@ user_profile = {
     "Favorite Hobbies": hobbies
 }
 
-print("---\nProfile Summary:")
-print(f"Name:  {user_profile.get('Name')}")
-print(f"Age: {user_profile.get('Age')}")
-print(f"Life stage: {user_profile.get('Life Stage')}")
-
-
-if len(hobbies) > 0:
-    print(f"Favorite Hobbies({len(hobbies)}): ")
-    [print(f"- {hobby}") for hobby in user_profile.get('Favorite Hobbies')]
-else:
-    print("You didn't mention any hobbies.")
-    
+print("---", "Profile Summary:", f"Name: {user_profile.get('Name')}", f"Age: {user_profile.get('Age')}", f"Life stage: {user_profile.get('Life Stage')}", sep='\n')
+print(f"Favorite Hobbies({len(hobbies)}): \n", "\n".join([f"- {hobby}" for hobby in user_profile.get('Favorite Hobbies')]), sep='') if len(hobbies) > 0 else print("You didn't mention any hobbies.")
 print("---")
